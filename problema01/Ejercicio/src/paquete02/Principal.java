@@ -7,6 +7,7 @@ package paquete02;
 
 import java.util.ArrayList;
 import paquete01.Televisor;
+import paquete03.TevPresio;
 
 /**
  *
@@ -27,6 +28,9 @@ public class Principal {
         Televisor t3 = new Televisor();
         t3.establecerMarca("RIVIERA-29 pulgadas");
         t3.establecerPrecio(2300.5);
+        
+        TevPresio t4 = TevPresio();
+        t4.establecerTv
 
         ArrayList<Televisor> tvs = new ArrayList<>();
         tvs.add(t1);
