@@ -28,17 +28,20 @@ public class Principal {
         Televisor t3 = new Televisor();
         t3.establecerMarca("RIVIERA-29 pulgadas");
         t3.establecerPrecio(2300.5);
-        
-        TevPresio t4 = TevPresio();
-        t4.establecerTv
 
         ArrayList<Televisor> tvs = new ArrayList<>();
         tvs.add(t1);
         tvs.add(t2);
         tvs.add(t3);
-        System.out.println("-----------------");
-        System.out.printf("%.2f\n", t1.totalPrecioTvs(tvs));
-        System.out.printf("%s\n", t1.listaMarcasVendidas(tvs));
+
+        TevPresio o = new TevPresio();
+        o.establecerTv(tvs);
+
+        o.establecerTeleMasCaro(tvs);
+        o.obtenerTotalPrecioTvs();
+        o.establecerListaMarcas(tvs);
+
+        System.out.println(o);
 
     }
 }

@@ -31,40 +31,59 @@ public class TevPresio {
         }
         totalPrecioTvs = s;
     }
- 
-    public void establecerListaMarVendida (ArrayList<Televisor> t){
-        String s = "";
-        for (int i = 0; i < tvs.size(); i++) {
-            s = String.format("%s\n%s\n"
-            ,s, tvs.get(i).obtenerMarca());       
-        }  
-        listaMar = s;
+    public double obtenerTotalPrecioTvs(){
+        return totalPrecioTvs;
     }
-    public String obtenerMarcasVendidas(){
-        return listaMar;
-    }
-    public void establecerPrecioTotal(ArrayList<Televisor> t){
-        double s = 0;
-        for (int i = 0; i < tvs.size(); i++) {
-            s = s + tvs.get(i).obtenerPrecio();
-            System.out.println(s);
+    public void establecerTeleMasCaro(ArrayList<Televisor> t){
+        televisorMasCaro = t.get(0).obtenerPrecio();
+        for (int i = 1; i < t.size(); i++) {
+            if(televisorMasCaro <= t.get(i).obtenerPrecio()){
+                televisorMasCaro =  t.get(i).obtenerPrecio();
+            }
         }
-        return s;
-    }  
-
-     public double obtenerPrecioTotal(){
-        return s;
     }
-    public double obtenerTelevisorMasCaro(){
+    public double obtenerTeleMasCaro(){
         return televisorMasCaro;
     }
-    public String televisorMasCaro(ArrayList<Televisor> t){
-        String s = "";
+
+    public void establecerListaMarcas(ArrayList<Televisor> t){
+        listaMar = "";
         for (int i = 0; i < t.size(); i++) {
-            s = String.format("%s%s\n", s, t.get(i).obtenerMarca());
+            listaMar = String.format("%s%s\n"
+                    ,listaMar
+                    ,t.get(i).obtenerMarca());
         }
-        return s;
     }
+    public String obtenerListaMarcas(){
+        return listaMar;
+    }
+
+    @Override
+    public String toString() {
+        String c = "";
+        String cadena;
+        for(int i = 0; i < obtenerTv().size();i++){
+            c = String.format("%s\nNombre del TV: %s\n"
+                            + "Edades: %.2f\n"
+                    ,c
+                    ,obtenerTv().get(i).obtenerMarca()
+                    ,obtenerTv().get(i).obtenerPrecio()
+            );
+        }
+        cadena = String.format("Lista de Tvs...\n"
+                        + "%s\n"
+                        + "Lista de marcas Vendidas.. \n"
+                        + "%s\n"
+                        + "Total del precio de Tvs: %.2f\n"
+                        + "Televisor mas caro: %.2f\n"
+                ,c
+                ,obtenerListaMarcas()
+                ,obtenerTotalPrecioTvs()
+                ,obtenerTeleMasCaro()
+        );
+        return cadena;
+    }
+
 }
     
     
